@@ -468,10 +468,9 @@ a.style.top=Math.round(Math.random()*Math.max(0,i.clientHeight-a.offsetHeight))+
 }catch(t){}setTimeout((()=>ot(t)),500)}()}
 const F=["💀","😂","😭","🗿","🔥","‼️","🤡","🈸","🈂️","🔳","🔲","🐸","🦆","🍆","🧀","🥀","🫠","🤯","👁️","👄","👁️","🦷","🧠","🚽","🪳","🐒","🦐","🌚","⚰️","🛐","📉","📈","🎰","🧃","🍞","🥶","😈","🤓","🫃","💅","🙏","🗣️","🔊","❓","❗","⁉️","🆗","🆒","🈵","🉐","🈹","🅱️","🔞","♿","🚷","🔪","🩸","🧟","👽","🐛","🍄","🌭","🪦"]
 ;function G(e){const n=t("almadle::share::"+s+"::"+e.miss.join(".")+"::"+e.t),o=(t,e)=>Array.from({length:n.int(t,e)
-},(()=>n.f()<.7?n.pick(["🟩","🟥","🟧"]):n.pick(F))).join(""),i=function(t){const e=t.map((t=>0===t?"🟩":t<=2?"🟨":t<=5?"🟧":"🟥")),n=[]
-;for(let t=0;t<e.length;t+=5)n.push(e.slice(t,t+5).join(""));return n.join("\n")
-}(e.miss).split("\n").map((t=>t+o(2,5))).join("\n"),a=K(e),r=`${a.tiles[0][0]} ${a.tiles[0][1]} · ${a.tiles[1][0]} 💀/s\n${a.tiles[2][0]} ʜᴇᴍᴏʀʀʜᴀɢᴇ · ${a.tiles[3][0]} ${a.tiles[3][1]}\n${a.title}\n`+a.bars.map((t=>`${t.l}${"▁▂▃▄▅▆▇█"[Math.min(7,Math.floor(t.v/12.5))]}${t.hi?"🟩":""}`)).join(" ")+"\n"+`🟥:🟩 = ${a.ratio} · ʙᴇᴛᴛᴇʀ ᴛʜᴀɴ ${V??"??"}% ᴏꜰ ɢᴏᴏᴅ`
-;return`${o(2,4)}𝐚𝐥𝐦𝐚𝐝𝐥𝐞${o(1,3)} #${l}:\n${o(3,6)}\n${o(3,6)}\n${i}\n${H(e.t)} · ❌${e.miss.reduce(((t,e)=>t+e),0)} · 🏆${B(e).toLocaleString("en-US")}\n${r}\n\n𝔹𝕣𝕠 𝕔𝕠𝕟𝕡𝕝𝕖𝕥𝕖𝕕 💀✅\n${rt("YOU","frak")} ${rt("did","scr")} ${rt("the","mono")} ${rt("well","dbl")} : ) ${rt("NICE","circ")}\nhttps://almadle.lol`
+},(()=>n.pick(F))).join(""),i=e.miss.map((t=>0===t?"🟩":t<=2?"🟧":"🟥")).join("")
+;const a=K(e),r=`${a.tiles[0][0]} ${a.tiles[0][1]} · ${a.tiles[1][0]} 💀/s\n${a.tiles[2][0]} ʜᴇᴍᴏʀʀʜᴀɢᴇ · ${a.tiles[3][0]} ${a.tiles[3][1]}\n${a.title}\n`+a.bars.map((t=>`${t.l}${"▁▂▃▄▅▆▇█"[Math.min(7,Math.floor(t.v/12.5))]}${t.hi?"◀":""}`)).join(" ")+"\n"+`🔴:🟢 = ${a.ratio} · ʙᴇᴛᴛᴇʀ ᴛʜᴀɴ ${V??"??"}% ᴏꜰ ɢᴏᴏᴅ`
+;return`${o(1,3)}𝐚𝐥𝐦𝐚𝐝𝐥𝐞${o(1,2)} #${l}:\n${i}\n${H(e.t)} · ❌${e.miss.reduce(((t,e)=>t+e),0)} · 🏆${B(e).toLocaleString("en-US")}\n${r}\n\n𝔹𝕣𝕠 𝕔𝕠𝕟𝕡𝕝𝕖𝕥𝕖𝕕 💀✅\n${rt("YOU","frak")} ${rt("did","scr")} ${rt("the","mono")} ${rt("well","dbl")} : ) ${rt("NICE","circ")}\nhttps://almadle.lol`
 }function K(e){
 const n=t("almadle::stats::"+s+"::"+e.miss.join(".")+"::"+e.t),o=(t,e,o=0)=>(t+n.f()*(e-t)).toFixed(o),i=[[o(0,999,1)+"%","𝕔𝕠𝕟𝕡𝕝𝕖𝕥𝕖𝕕𝕟𝕖𝕤𝕤"],[o(-99,99,2),"skull velocity 💀/s"],[n.int(0,9)+"/"+n.int(0,9),"ʜᴇᴍᴏʀʀʜᴀɢᴇ ɪɴᴅᴇx"],["🪳"+n.int(1,99),"𝖇𝖗𝖔 𝖕𝖔𝖎𝖓𝖙𝖘"]],a=n.int(0,5)
 ;return{tiles:i,bars:["🐸","𝟓",";;;","🈂️","ⓧ","∞"].map(((t,e)=>({l:t,v:n.int(0,99),hi:e===a}))),
