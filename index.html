@@ -439,20 +439,20 @@ const{r:e,body:n}=t,o=[["RED","#e53935"],["BLUE","#1e88e5"],["GREEN","#43a047"],
 ;const a=d("p","big"),r=d("p","d"),l=d("div","row"),c=()=>{const t=e.int(0,4);do{i=e.int(0,4)}while(i===t);a.textContent=o[t][0],
 a.style.color=o[i][1],r.textContent=`Click the INK color, not the word. In a row: ${s}/3`};o.forEach(((e,n)=>l.append(p(e[0],(()=>{
 if(n===i){if(s++,s>=3)return t.win()}else s=0,t.miss();c()}))))),n.append(r,a,l),c()}},{icon:"🥚",name:"catch the eggs",from:"2026-11-08",
-build(t){const{r:e,body:n}=t,o=e.int(4,6);let s=0,i=!1;const a=d("p","d",`catch ${o} eggs · mouse or ← → to move`),r=d("div","area")
-;r.style.height="200px";const l=d("div","","🐔"),c=d("div","","🧺")
-;l.style.cssText="position:absolute;top:2px;left:0;font-size:1.9rem;line-height:1",
-c.style.cssText="position:absolute;bottom:2px;left:0;font-size:2.1rem;line-height:1",r.append(l,c)
-;let h=20,u=2+1.5*e.f(),f=120,y=[],g=900,b=2.2;const v=()=>r.clientWidth,x=()=>r.clientHeight,w=t=>{f=m(t,0,v()-40),
-c.style.transform=`translateX(${f}px)`};r.onpointermove=t=>w(t.clientX-r.getBoundingClientRect().left-20),
-n.closest(".win")._key=t=>"ArrowLeft"===t.key?(w(f-26),!0):"ArrowRight"===t.key?(w(f+26),!0):!(i||"Enter"!==t.key&&" "!==t.key)&&(C(),!0)
-;const $=()=>{if(!t.alive())return clearInterval(k);if(h+=u,(h<0||h>v()-34)&&(u=-u,h=m(h,0,v()-34)),Math.random()<.02&&(u=-u),
-l.style.transform=`translateX(${h}px) scaleX(${u>0?-1:1})`,g-=30,g<=0){const t=d("div","","🥚")
-;t.style.cssText="position:absolute;top:0;left:0;font-size:1.4rem;line-height:1";const e={el:t,x:h+6,y:28}
-;t.style.transform=`translate(${e.x}px,${e.y}px)`,r.append(t),y.push(e),g=700+700*Math.random()-60*s,b+=.15}y=y.filter((e=>(e.y+=b,
-e.el.style.transform=`translate(${e.x}px,${e.y}px)`,e.y>=x()-48&&e.y<=x()-20&&Math.abs(e.x+10-(f+20))<30?(e.el.remove(),s++,
-a.textContent=`🥚 ${s}/${o}`,s>=o&&t.win(),!1):!(e.y>x()-14)||(e.el.textContent="🍳",setTimeout((()=>e.el.remove()),400),t.miss(),!1))))}
-;let k=null;const C=()=>{i||(i=!0,M.remove(),k=setInterval($,30))},M=p("startings it",C,"b go");n.append(a,r,M),w(120)}},{icon:"🔨",
+build(t){const{r:e,body:n}=t;let o=0,s=!1;const i=d("p","d","catch 8 eggs · mouse or ← → to move"),a=d("div","area");a.style.height="200px"
+;const r=d("div","","🐔"),l=d("div","","🧺");r.style.cssText="position:absolute;top:2px;left:0;font-size:1.9rem;line-height:1",
+l.style.cssText="position:absolute;bottom:2px;left:0;font-size:2.1rem;line-height:1",a.append(r,l)
+;let c=20,h=3+2*e.f(),u=120,f=[],y=600,g=4.4;const b=()=>a.clientWidth,v=()=>a.clientHeight,x=t=>{u=m(t,0,b()-40),
+l.style.transform=`translateX(${u}px)`};a.onpointermove=t=>x(t.clientX-a.getBoundingClientRect().left-20),
+n.closest(".win")._key=t=>"ArrowLeft"===t.key?(x(u-26),!0):"ArrowRight"===t.key?(x(u+26),!0):!(s||"Enter"!==t.key&&" "!==t.key)&&($(),!0)
+;const w=()=>{if(!t.alive())return clearInterval(k);if(c+=h,(c<0||c>b()-34)&&(h=-h,c=m(c,0,b()-34)),Math.random()<.02&&(h=-h),
+r.style.transform=`translateX(${c}px) scaleX(${h>0?-1:1})`,y-=30,y<=0){const t=d("div","","🥚")
+;t.style.cssText="position:absolute;top:0;left:0;font-size:1.4rem;line-height:1";const e={el:t,x:c+6,y:28}
+;t.style.transform=`translate(${e.x}px,${e.y}px)`,a.append(t),f.push(e),y=Math.max(280,450+550*Math.random()-70*o),g+=.3}
+f=f.filter((e=>(e.y+=g,
+e.el.style.transform=`translate(${e.x}px,${e.y}px)`,!e.chk&&e.y>=v()-48&&(e.chk=!0)&&Math.abs(e.x+10-(u+20))<30?(e.el.remove(),o++,
+i.textContent=`🥚 ${o}/8`,o>=8&&t.win(),!1):!(e.y>v()-14)||(e.el.textContent="🍳",setTimeout((()=>e.el.remove()),400),t.miss(),!1))))}
+;let k=null;const $=()=>{s||(s=!0,C.remove(),k=setInterval(w,30))},C=p("startings it",$,"b go");n.append(i,a,C),x(120)}},{icon:"🔨",
 name:"whack the mole",from:"2026-11-08",build(t){const{r:e,body:n}=t,o=e.int(4,6);let s=0,i=-1,a=null
 ;const r=d("p","d",`whack ${o} moles 🐹`),l=d("div","grid");l.style.gridTemplateColumns="repeat(3,58px)";const c=[...Array(9)].map(((e,n)=>{
 const c=p("🕳️",(()=>{if(n===i){if(s++,c.textContent="💥",i=-1,r.textContent=`🐹 ${s}/${o}`,s>=o)return t.win();clearTimeout(a),
@@ -472,13 +472,13 @@ const{r:e,body:n}=t;let o=0,s=!1,i=null,a=0;const r=d("p","d","click when it tur
 c.style.background="#c62828",c.style.color="#fff",i=setTimeout((()=>{t.alive()&&(s=!0,a=performance.now(),c.textContent="NOW",
 c.style.background="#2e7d32")}),900+2200*e.f())};c.onpointerdown=()=>s?(o++,l.textContent=`${Math.round(performance.now()-a)} ms · ${o}/3`,
 o>=3?t.win():void p()):(clearTimeout(i),l.textContent="too early 💀",t.miss(),p()),n.append(r,c,l),p()}
-}],w=t("dingle::plan::"+s),$=w.int(7,10),k=w.shuffle(x.filter((t=>!t.from||s>=t.from))).slice(0,$),C=k.map(((t,e)=>0===e?0:e<3?w.int(300,800):w.int(1e3,3e3))),M=["dark","xp","98","aero","mac","term","vapor","blob","brutal","pixel","paper","neon","gb","post","kawaii","chrome"],S=w.shuffle(M)
+}],w=t("dingle::plan::"+s),k=w.int(7,10),$=w.shuffle(x.filter((t=>!t.from||s>=t.from))).slice(0,k),C=$.map(((t,e)=>0===e?0:e<3?w.int(300,800):w.int(1e3,3e3))),M=["dark","xp","98","aero","mac","term","vapor","blob","brutal","pixel","paper","neon","gb","post","kawaii","chrome"],S=w.shuffle(M)
 ;{const e=t("almadle::site::"+s);document.body.classList.add("site-"+e.pick(M.filter((t=>"dark"!==t)))),
-document.body.style.setProperty("--hue",e.int(0,359))}const T=k.map((()=>0));let L,A=!1,I=0,E=0,z=10,_=0,j=!1
+document.body.style.setProperty("--hue",e.int(0,359))}const T=$.map((()=>0));let L,A=!1,I=0,E=0,z=10,_=0,j=!1
 ;const P="almadle-run:"+s,N=new Set,O=()=>{try{localStorage.setItem(P,JSON.stringify({start:_,miss:T,solved:[...N]}))}catch(t){}},D=()=>{
 L=setInterval((()=>{c("h-time").textContent=H((Date.now()-_)/1e3)}),250)},H=t=>`${Math.floor(t/60)}:${o(Math.floor(t%60))}`;function U(){
-c("h-solved").textContent=`✅ ${E}/${$}`,c("h-miss").textContent=`❌ ${T.reduce(((t,e)=>t+e),0)}`,c("h-open").textContent=I-E+" open"}
-function J(e){if(!j)return e>=$?q():N.has(e)?(I++,U(),J(e+1)):void setTimeout((()=>{!function(e,n){
+c("h-solved").textContent=`✅ ${E}/${k}`,c("h-miss").textContent=`❌ ${T.reduce(((t,e)=>t+e),0)}`,c("h-open").textContent=I-E+" open"}
+function J(e){if(!j)return e>=k?q():N.has(e)?(I++,U(),J(e+1)):void setTimeout((()=>{!function(e,n){
 const o=t(`${s}::g${n}`),i=c("desk"),a=d("div","win"),r=d("div","tb"),l=d("div","bd"),h=d("span","mc",T[n]?`❌${T[n]}`:"")
 ;a.style.setProperty("--hue",o.int(0,359)),a.classList.add("sk-"+S[n%S.length]),
 a.style.setProperty("--tilt",(7919*n%60/10-3).toFixed(1)+"deg"),o.f()<.25&&a.classList.add("wander");const m=p("×",(()=>{
@@ -496,7 +496,7 @@ a.style.top=t.clientY-o+"px"},r.onpointerup=()=>{r.onpointermove=null,e&&a.class
 const t=()=>{
 a.isConnected&&(a.classList.contains("wander")&&!r.onpointermove&&(a.style.left=Math.round(Math.random()*Math.max(0,i.clientWidth-a.offsetWidth))+"px",
 a.style.top=Math.round(Math.random()*Math.max(0,i.clientHeight-a.offsetHeight))+"px"),setTimeout(t,4e3+5e3*Math.random()))}
-;setTimeout(t,4e3+4e3*Math.random())}I++,U()}(k[e],e),J(e+1)}),0===e?0:C[e])}function q(){j||I!==$||E!==$||function(){j=!0,clearInterval(L)
+;setTimeout(t,4e3+4e3*Math.random())}I++,U()}($[e],e),J(e+1)}),0===e?0:C[e])}function q(){j||I!==k||E!==k||function(){j=!0,clearInterval(L)
 ;const t={t:Math.round((Date.now()-_)/1e3),miss:T.slice()};try{localStorage.setItem(B,JSON.stringify(t)),localStorage.removeItem(P)
 }catch(t){}setTimeout((()=>ot(t)),500)}()}
 const F=["💀","😂","😭","🗿","🔥","‼️","🤡","🈸","🈂️","🔳","🔲","🐸","🦆","🍆","🧀","🥀","🫠","🤯","👁️","👄","👁️","🦷","🧠","🚽","🪳","🐒","🦐","🌚","⚰️","🛐","📉","📈","🎰","🧃","🍞","🥶","😈","🤓","🫃","💅","🙏","🗣️","🔊","❓","❗","⁉️","🆗","🆒","🈵","🉐","🈹","🅱️","🔞","♿","🚷","🔪","🩸","🧟","👽","🐛","🍄","🌭","🪦"]
@@ -565,10 +565,10 @@ const e=m(1-(r[t]+r[t+1])/510,0,1);for(let n=0;n<3;n++)r[t+n]=255+(o[n]-255)*e}s
 i.src=n}()
 ;const pt=["dj","ing","gle","al","ma","hem","orr","bla","zz","sk","ib","oop","ngh","flo","rp","kek","gr","eep","qu","onk","rrh","age","dle","sn","orb","pl","ux"],ht=()=>rt(Array.from({
 length:lt.int(2,4)},(()=>lt.pick(pt))).join(""),lt.pick(ct));c("intro").style.wordBreak="break-word",
-c("intro").innerHTML=`<div style="font-size:1.3rem">${rt("#"+l,lt.pick(["bold","dbl","full","circ"]))} ${lt.pick(dt)}</div><div style="font-size:1.35rem">${lt.pick(dt)}${ht()} <b>${rt($+"",lt.pick(["bold","dbl","full","circ"]))}</b>${ht()} ${lt.pick(dt)}</div><div>${ht()}${lt.pick(dt)} ${ht()} ${lt.pick(["🈂️🈂️;;;","😭😭","🔥🔥🔥","🗿"])}</div><div>${lt.pick(dt)}${rt(String(lt.int(0,99999)),lt.pick(["bold","dbl","mono","circ"]))}${ht()}</div><div style="font-size:1.25rem;margin-top:4px">${rt("Conplete","dbl")} 💀✅</div>`,
+c("intro").innerHTML=`<div style="font-size:1.3rem">${rt("#"+l,lt.pick(["bold","dbl","full","circ"]))} ${lt.pick(dt)}</div><div style="font-size:1.35rem">${lt.pick(dt)}${ht()} <b>${rt(k+"",lt.pick(["bold","dbl","full","circ"]))}</b>${ht()} ${lt.pick(dt)}</div><div>${ht()}${lt.pick(dt)} ${ht()} ${lt.pick(["🈂️🈂️;;;","😭😭","🔥🔥🔥","🗿"])}</div><div>${lt.pick(dt)}${rt(String(lt.int(0,99999)),lt.pick(["bold","dbl","mono","circ"]))}${ht()}</div><div style="font-size:1.25rem;margin-top:4px">${rt("Conplete","dbl")} 💀✅</div>`,
 c("go").onclick=()=>{A||(A=!0,c("start").style.display="none",_=Date.now(),O(),et(),D(),U(),J(0))},U(),function(){let t=null,e=null;try{
 t=JSON.parse(localStorage.getItem(B)||"null"),e=JSON.parse(localStorage.getItem(P)||"null")}catch(t){}
-if(t&&Array.isArray(t.miss))return ot(t);e&&e.start&&Array.isArray(e.miss)&&e.miss.length===$&&(A=!0,c("start").style.display="none",
+if(t&&Array.isArray(t.miss))return ot(t);e&&e.start&&Array.isArray(e.miss)&&e.miss.length===k&&(A=!0,c("start").style.display="none",
 _=e.start,e.miss.forEach(((t,e)=>T[e]=t)),(e.solved||[]).forEach((t=>N.add(t))),E=N.size,et(),D(),U(),J(0))}();
 </script>
 </body>
