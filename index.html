@@ -312,6 +312,8 @@ body .ov #share{background:#fff!important;color:#000!important;border:0!importan
 body #hud{background:#c0c0c0!important;color:#000!important;border:0!important;border-bottom:2px solid #000!important;border-radius:0!important;
 left:0!important;right:0!important;top:0!important;box-shadow:none!important;backdrop-filter:none!important;text-transform:none!important}
 #hud h1 img{border-radius:0!important}
+.lights .cell{background:#16161c!important;border-color:#3a3a44!important;box-shadow:none!important}
+.lights .cell.on{background:#ffd400!important;border-color:#fff3a0!important}
 html body{background:#5c5c6c!important;animation:none!important}
 @supports not selector(::-webkit-scrollbar){*{scrollbar-color:#c0c0c0 #2a2a33}}
 ::-webkit-scrollbar{width:12px;height:12px;background:#2a2a33}
@@ -413,9 +415,9 @@ name:"turn off the lights",build(t){const{r:e,body:n}=t,o=Array(9).fill(!1),s=[]
 ;e.shuffle([0,1,2,3,4,5,6,7,8]).slice(0,e.int(1,2)).forEach((t=>i(o,t)));const a=o.slice();let r=0;const l=()=>{const t=r>=10?(()=>{
 let t=null;for(let e=0;e<512;e++){const n=o.slice(),s=[];for(let t=0;t<9;t++)e>>t&1&&(i(n,t),s.push(t))
 ;n.every((t=>!t))&&(!t||s.length<t.length)&&(t=s)}return t||[]})()[0]:-1;s.forEach(((e,n)=>{e.classList.toggle("on",o[n]),
-e.style.outline=n===t?"3px solid #ff2d6f":"",e.style.outlineOffset="2px"}))},c=d("div","grid");c.style.gridTemplateColumns="repeat(3,46px)"
-;for(let e=0;e<9;e++){const n=p("",(()=>{i(o,e),r++,l(),o.every((t=>!t))&&t.win()}),"cell");n.style.width=n.style.height="46px",s.push(n),
-c.append(n)}const h=p("reset",(()=>{a.forEach(((t,e)=>o[e]=t)),l()}),"b")
+e.style.outline=n===t?"3px solid #ff2d6f":"",e.style.outlineOffset="2px"}))},c=d("div","grid lights")
+;c.style.gridTemplateColumns="repeat(3,46px)";for(let e=0;e<9;e++){const n=p("",(()=>{i(o,e),r++,l(),o.every((t=>!t))&&t.win()}),"cell")
+;n.style.width=n.style.height="46px",s.push(n),c.append(n)}const h=p("reset",(()=>{a.forEach(((t,e)=>o[e]=t)),l()}),"b")
 ;n.append(d("p","d","Turn every light off. Each press flips the tile and its neighbors."),c,h),l()}},{icon:"⌨️",name:"copy the text",
 build(t){const{r:e,body:n}=t,o="dj*;1234568",s=Array.from({length:e.int(4,6)},(()=>o[e.int(0,10)])).join("")
 ;n.append(d("p","d","Click this out exactly:"),d("p","big",s)),x(n,"…",(e=>e===s?t.win():t.miss()),e.shuffle([...o]),s.length)}},{icon:"💀",
