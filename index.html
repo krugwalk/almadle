@@ -616,13 +616,13 @@ tt=100,n.innerHTML='<div class="rl-top">ʏᴏᴜ\'ʀᴇ ᴛʜᴇ ꜰɪʀꜱᴛ �
 ;l&&(l.textContent="🏆 "+B(e).toLocaleString("en-US"))
 ;const d=o?`better than <b>${tt}%</b> of players today · ${t.players.toLocaleString("en-US")} played`:`your run wasn't counted today 💀 · ${t.players.toLocaleString("en-US")} played<div style="font-size:.6rem;opacity:.5">${(et||"").replace(/[<>&]/g,"")}</div>`
 ;n.innerHTML=`<div class="rl-top">${d}</div><div class="rl-chart">${a.map(((t,e)=>`<span class="${e===r?"me":""}" style="height:${Math.max(3,100*t/i)}%" title="${e}k: ${t}"></span>`)).join("")}</div><div class="rl-axis"><span>0</span><span>5k</span><span>10k</span><span>14k+</span></div>`,
-c("share").textContent=Y(e);const p=c("rl-good");p&&(p.textContent=nt())}(e,t),e&&async function(t){const[e,n,o,s]=await dt();if(!e)return
-;c("h-top").hidden=!1,t&&!ct(lt)&&(ct(lt,"1"),ut(e,n,o,s))}(!0)})),rt="almadle-name",lt="almadle-top-seen:"+s,ct=(t,e)=>{try{
-if(void 0===e)return localStorage.getItem(t);localStorage.setItem(t,e)}catch(t){return null}},dt=()=>Promise.all([st("almadle_top",{p_day:s
-}),st("almadle_slowest",{p_day:s}),st("almadle_me",{p_day:s}),st("almadle_scores",{p_day:s})]);function pt(){const t=c("topov")
-;t&&t.remove()}let mt="times";async function ht(){const[t,e,n,o]=await dt();ut(t,e,n,o)}function ut(t,e,n,o){pt()
-;const s=d("div","topov"),a=d("div","topcard");s.id="topov",s.onpointerdown=t=>{t.target===s&&pt()};const i=(t,e,n,o,s)=>{
-const a=d("div","t5-row"+(s?" "+s:""))
+c("share").textContent=Y(e);const p=c("rl-good");p&&(p.textContent=nt())}(e,t),e&&async function(t){if(s<"2026-11-08")return
+;const[e,n,o,a]=await dt();if(!e)return;c("h-top").hidden=!1,t&&!ct(lt)&&(ct(lt,"1"),ut(e,n,o,a))}(!0)
+})),rt="almadle-name",lt="almadle-top-seen:"+s,ct=(t,e)=>{try{if(void 0===e)return localStorage.getItem(t);localStorage.setItem(t,e)
+}catch(t){return null}},dt=()=>Promise.all([st("almadle_top",{p_day:s}),st("almadle_slowest",{p_day:s}),st("almadle_me",{p_day:s
+}),st("almadle_scores",{p_day:s})]);function pt(){const t=c("topov");t&&t.remove()}let mt="times";async function ht(){
+const[t,e,n,o]=await dt();ut(t,e,n,o)}function ut(t,e,n,o){pt();const s=d("div","topov"),a=d("div","topcard");s.id="topov",
+s.onpointerdown=t=>{t.target===s&&pt()};const i=(t,e,n,o,s)=>{const a=d("div","t5-row"+(s?" "+s:""))
 ;return a.append(d("span","t5-rank",String(t)),d("span","t5-name",e),d("span","t5-time",n),d("span","t5-miss",o||"")),a
 },r=t=>(t.rank<=3?"p"+t.rank:"")+(t.me?" me":""),l=t=>t.toLocaleString("en-US"),c=d("div","t5-tabs"),m=d("div"),h=(t,e)=>{const n=p(e,(()=>{
 mt=t,u()}),"t5-tab");return n.dataset.id=t,n};c.append(h("times","times"),h("scores","scores"));const u=()=>{m.innerHTML="",
