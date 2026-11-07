@@ -340,6 +340,7 @@ body *{text-transform:lowercase!important}
   <div id="stats"></div>
   <div id="share"></div><br>
   <button class="btn" id="copy">Copy</button>
+  <button class="btn" id="tweet">share on x</button>
   <div id="next"></div>
 </div></div>
 
@@ -487,41 +488,41 @@ c.style.background="#2e7d32")}),900+2200*e.f())};c.onpointerdown=()=>s?(o++,l.te
 o>=3?t.win():void p()):(clearTimeout(i),l.textContent="too early 💀",t.miss(),p()),n.append(r,c,l),p()}
 }],w=t("dingle::plan::"+s),M=w.int(7,10),$=w.shuffle(v.filter((t=>!t.from||s>=t.from))).slice(0,M),k=$.map(((t,e)=>0===e?0:e<3?w.int(300,800):w.int(1e3,3e3))),C=["dark","xp","98","aero","mac","term","vapor","blob","brutal","pixel","paper","neon","gb","post","kawaii","chrome"],S=w.shuffle(C)
 ;{const e=t("almadle::site::"+s);document.body.classList.add("site-"+e.pick(C.filter((t=>"dark"!==t)))),
-document.body.style.setProperty("--hue",e.int(0,359))}const T=$.map((()=>0));let A,L=!1,E=0,z=0,I=10,_=0,P=!1
+document.body.style.setProperty("--hue",e.int(0,359))}const T=$.map((()=>0));let A,L=!1,E=0,I=0,z=10,_=0,P=!1
 ;const j="almadle-run:"+s,N=new Set,O=()=>{try{localStorage.setItem(j,JSON.stringify({start:_,miss:T,solved:[...N]}))}catch(t){}},H=()=>{
-A=setInterval((()=>{c("h-time").textContent=D((Date.now()-_)/1e3)}),250)},D=t=>`${Math.floor(t/60)}:${o(Math.floor(t%60))}`;function U(){
-c("h-solved").textContent=`✅ ${z}/${M}`,c("h-miss").textContent=`❌ ${T.reduce(((t,e)=>t+e),0)}`,c("h-open").textContent=E-z+" open"}
-function J(e){if(!P)return e>=M?F():N.has(e)?(E++,U(),J(e+1)):void setTimeout((()=>{!function(e,n){
+A=setInterval((()=>{c("h-time").textContent=U((Date.now()-_)/1e3)}),250)},U=t=>`${Math.floor(t/60)}:${o(Math.floor(t%60))}`;function D(){
+c("h-solved").textContent=`✅ ${I}/${M}`,c("h-miss").textContent=`❌ ${T.reduce(((t,e)=>t+e),0)}`,c("h-open").textContent=E-I+" open"}
+function J(e){if(!P)return e>=M?F():N.has(e)?(E++,D(),J(e+1)):void setTimeout((()=>{!function(e,n){
 const o=t(`${s}::g${n}`),i=c("desk"),a=d("div","win"),r=d("div","tb"),l=d("div","bd"),h=d("span","mc",T[n]?`❌${T[n]}`:"")
 ;a.style.setProperty("--hue",o.int(0,359)),a.classList.add("sk-"+S[n%S.length]),
 a.style.setProperty("--tilt",(7919*n%60/10-3).toFixed(1)+"deg"),o.f()<.25&&a.classList.add("wander");const m=p("×",(()=>{
 a.classList.remove("nope"),a.offsetWidth,a.classList.add("nope")
 }),"x"),u=t(`${s}::title::${n}`).pick(["bold","bit","scr","frak","dbl","sans","mono","full","small","circ"])
-;r.append(d("span","ttl",`${e.icon} ${rt(e.name,u)}`),h,m),a.append(r,l),i.append(a);const f=o.f(),y=o.f()
+;r.append(d("span","ttl",`${e.icon} ${ct(e.name,u)}`),h,m),a.append(r,l),i.append(a);const f=o.f(),y=o.f()
 ;a.style.left=Math.round(f*Math.max(0,i.clientWidth-a.offsetWidth))+"px",
-a.style.top=Math.round(y*Math.max(0,i.clientHeight-a.offsetHeight))+"px",a.style.zIndex=++I;let g=!1;const x={r:o,body:l,
-alive:()=>a.isConnected&&!g,win(){g||(g=!0,a.classList.add("solved"),z++,N.add(n),O(),U(),setTimeout((()=>{a.remove(),U(),F()}),880))},
-miss(){g||(T[n]++,O(),h.textContent=`❌${T[n]}`,U(),a.classList.remove("nope"),a.offsetWidth,a.classList.add("nope"))}};try{e.build(x)
-}catch(t){console.error(e.name,t),x.win()}if(a.addEventListener("pointerdown",(()=>{a.style.zIndex=++I})),
+a.style.top=Math.round(y*Math.max(0,i.clientHeight-a.offsetHeight))+"px",a.style.zIndex=++z;let g=!1;const x={r:o,body:l,
+alive:()=>a.isConnected&&!g,win(){g||(g=!0,a.classList.add("solved"),I++,N.add(n),O(),D(),setTimeout((()=>{a.remove(),D(),F()}),880))},
+miss(){g||(T[n]++,O(),h.textContent=`❌${T[n]}`,D(),a.classList.remove("nope"),a.offsetWidth,a.classList.add("nope"))}};try{e.build(x)
+}catch(t){console.error(e.name,t),x.win()}if(a.addEventListener("pointerdown",(()=>{a.style.zIndex=++z})),
 r.addEventListener("pointerdown",(t=>{if(t.target===m)return;const e=a.classList.contains("wander");a.classList.remove("wander")
 ;const n=t.clientX-a.offsetLeft,o=t.clientY-a.offsetTop;r.setPointerCapture(t.pointerId),r.onpointermove=t=>{a.style.left=t.clientX-n+"px",
 a.style.top=t.clientY-o+"px"},r.onpointerup=()=>{r.onpointermove=null,e&&a.classList.add("wander")}})),a.classList.contains("wander")){
 const t=()=>{
 a.isConnected&&(a.classList.contains("wander")&&!r.onpointermove&&(a.style.left=Math.round(Math.random()*Math.max(0,i.clientWidth-a.offsetWidth))+"px",
 a.style.top=Math.round(Math.random()*Math.max(0,i.clientHeight-a.offsetHeight))+"px"),setTimeout(t,4e3+5e3*Math.random()))}
-;setTimeout(t,4e3+4e3*Math.random())}E++,U()}($[e],e),J(e+1)}),0===e?0:k[e])}function F(){P||E!==M||z!==M||function(){P=!0,clearInterval(A)
+;setTimeout(t,4e3+4e3*Math.random())}E++,D()}($[e],e),J(e+1)}),0===e?0:k[e])}function F(){P||E!==M||I!==M||function(){P=!0,clearInterval(A)
 ;const t={t:Math.round((Date.now()-_)/1e3),miss:T.slice()};try{localStorage.setItem(K,JSON.stringify(t)),localStorage.removeItem(j)
-}catch(t){}setTimeout((()=>ot(t)),500)}()}
-const q=["💀","😂","😭","🗿","🔥","‼️","🤡","🈸","🈂️","🔳","🔲","🐸","🦆","🍆","🧀","🥀","🫠","🤯","👁️","👄","👁️","🦷","🧠","🚽","🪳","🐒","🦐","🌚","⚰️","🛐","📉","📈","🎰","🧃","🍞","🥶","😈","🤓","🫃","💅","🙏","🗣️","🔊","❓","❗","⁉️","🆗","🆒","🈵","🉐","🈹","🅱️","🔞","♿","🚷","🔪","🩸","🧟","👽","🐛","🍄","🌭","🪦"]
-;function R(e){const n=t("almadle::share::"+s+"::"+e.miss.join(".")+"::"+e.t),o=(t,e)=>Array.from({length:n.int(t,e)
-},(()=>n.pick(q))).join(""),i=e.miss.map((t=>0===t?"🟩":t<=2?"🟧":"🟥")).join("")
+}catch(t){}setTimeout((()=>st(t)),500)}()}
+const R=["💀","😂","😭","🗿","🔥","‼️","🤡","🈸","🈂️","🔳","🔲","🐸","🦆","🍆","🧀","🥀","🫠","🤯","👁️","👄","👁️","🦷","🧠","🚽","🪳","🐒","🦐","🌚","⚰️","🛐","📉","📈","🎰","🧃","🍞","🥶","😈","🤓","🫃","💅","🙏","🗣️","🔊","❓","❗","⁉️","🆗","🆒","🈵","🉐","🈹","🅱️","🔞","♿","🚷","🔪","🩸","🧟","👽","🐛","🍄","🌭","🪦"]
+;function q(e){const n=t("almadle::share::"+s+"::"+e.miss.join(".")+"::"+e.t),o=(t,e)=>Array.from({length:n.int(t,e)
+},(()=>n.pick(R))).join(""),i=e.miss.map((t=>0===t?"🟩":t<=2?"🟧":"🟥")).join("")
 ;const a=W(e),r=`${a.tiles[0][0]} ${a.tiles[0][1]} · ${a.tiles[1][0]} 💀/s\n${a.tiles[2][0]} ʜᴇᴍᴏʀʀʜᴀɢᴇ · ${a.tiles[3][0]} ${a.tiles[3][1]}\n${a.title}\n`+a.bars.map((t=>`${t.l}${"▁▂▃▄▅▆▇█"[Math.min(7,Math.floor(t.v/12.5))]}${t.hi?"◀":""}`)).join(" ")+"\n"+`🔴:🟢 = ${a.ratio} · ʙᴇᴛᴛᴇʀ ᴛʜᴀɴ ${Q??"??"}% ᴏꜰ ɢᴏᴏᴅ`
-;return`${o(1,3)}𝐚𝐥𝐦𝐚𝐝𝐥𝐞${o(1,2)} #${l}:\n${i}\n${D(e.t)} · ❌${e.miss.reduce(((t,e)=>t+e),0)} · 🏆${G(e).toLocaleString("en-US")}\n${r}\n\n𝔹𝕣𝕠 𝕔𝕠𝕟𝕡𝕝𝕖𝕥𝕖𝕕 💀✅\n${rt("YOU","frak")} ${rt("did","scr")} ${rt("the","mono")} ${rt("well","dbl")} : ) ${rt("NICE","circ")}\nhttps://almadle.lol\nｓｅｎｔ ｆｒｏｍ ｉＰｈｏｎｅ １1️⃣`
+;return`${o(1,3)}𝐚𝐥𝐦𝐚𝐝𝐥𝐞${o(1,2)} #${l}:\n${i}\n${U(e.t)} · ❌${e.miss.reduce(((t,e)=>t+e),0)} · 🏆${G(e).toLocaleString("en-US")}\n${r}\n\n𝔹𝕣𝕠 𝕔𝕠𝕟𝕡𝕝𝕖𝕥𝕖𝕕 💀✅\n${ct("YOU","frak")} ${ct("did","scr")} ${ct("the","mono")} ${ct("well","dbl")} : ) ${ct("NICE","circ")}\nhttps://almadle.lol\nｓｅｎｔ ｆｒｏｍ ｉＰｈｏｎｅ １1️⃣`
 }function W(e){
 const n=t("almadle::stats::"+s+"::"+e.miss.join(".")+"::"+e.t),o=(t,e,o=0)=>(t+n.f()*(e-t)).toFixed(o),i=[[o(0,999,1)+"%","𝕔𝕠𝕟𝕡𝕝𝕖𝕥𝕖𝕕𝕟𝕖𝕤𝕤"],[o(-99,99,2),"skull velocity 💀/s"],[n.int(0,9)+"/"+n.int(0,9),"ʜᴇᴍᴏʀʀʜᴀɢᴇ ɪɴᴅᴇx"],["🪳"+n.int(1,99),"𝖇𝖗𝖔 𝖕𝖔𝖎𝖓𝖙𝖘"]],a=n.int(0,5)
 ;return{tiles:i,bars:["🐸","𝟓",";;;","🈂️","ⓧ","∞"].map(((t,e)=>({l:t,v:n.int(0,99),hi:e===a}))),
 ratio:`${n.int(1,9)}:${n.pick(["🐸","𝟓","ⓧ","∞","¿"])}`,better:o(0,200,0),
-title:`xaxaaxa ${rt("NICE",t("almadle::nicefont::"+s).pick(["bold","bit","scr","frak","dbl","sans","mono","full","circ"]))}`}}function G(t){
+title:`xaxaaxa ${ct("NICE",t("almadle::nicefont::"+s).pick(["bold","bit","scr","frak","dbl","sans","mono","full","circ"]))}`}}function G(t){
 if(t.server&&null!=t.server.score)return t.server.score;return t.miss.reduce(((t,e)=>t+Math.max(0,1e3-250*e)),0)+Math.max(0,6e3-25*t.t)}
 const K="dingle3:"+s,B="https://wzoeyjxzrcqqrzgzmesf.supabase.co",Y="sb_publishable_-g9ma1FNDNycYmJvNdht1Q_s8iOBmSA",X="almadle-auth"
 ;let Q=null,V="";async function Z(){let t=null;try{t=JSON.parse(localStorage.getItem(X)||"null")}catch(t){}const e=Date.now()/1e3
@@ -545,33 +546,40 @@ if(!t.sent){const e=await tt("almadle_finish",{p_day:s,p_misses:t.miss});if(e&&n
 localStorage.setItem(K,JSON.stringify(t))}catch(t){}}}return tt("almadle_day_stats",{p_day:s})}(t).then((e=>function(t,e){const n=c("real")
 ;if(!n)return;if(!t)return n.innerHTML='<div class="rl-top">ꜱᴄᴏʀᴇʙᴏᴀʀᴅ ᴏꜰꜰʟɪɴᴇ 💀</div><div style="font-size:.6rem;opacity:.5"></div>',
 void(n.lastChild.textContent=V);const o=null!=t.me;if(o&&t.players<=1){
-Q=100,n.innerHTML='<div class="rl-top">ʏᴏᴜ\'ʀᴇ ᴛʜᴇ ꜰɪʀꜱᴛ ᴏɴᴇ ᴛᴏᴅᴀʏ 💀</div>',c("share").textContent=R(e);const t=c("rl-good")
+Q=100,n.innerHTML='<div class="rl-top">ʏᴏᴜ\'ʀᴇ ᴛʜᴇ ꜰɪʀꜱᴛ ᴏɴᴇ ᴛᴏᴅᴀʏ 💀</div>',c("share").textContent=q(e);const t=c("rl-good")
 ;return void(t&&(t.textContent=Q))}const s=t.players-1;Q=o?s>0?Math.round(100*t.below/s):100:null
 ;const i=t.buckets||[],a=Math.max(1,...i),r=Math.min(14,Math.floor((o?t.me:G(e))/1e3)),l=document.querySelector(".st-score")
 ;l&&(l.textContent="🏆 "+G(e).toLocaleString("en-US"))
 ;const d=o?`better than <b>${Q}%</b> of players today · ${t.players.toLocaleString("en-US")} played`:`your run wasn't counted today 💀 · ${t.players.toLocaleString("en-US")} played<div style="font-size:.6rem;opacity:.5">${(V||"").replace(/[<>&]/g,"")}</div>`
 ;n.innerHTML=`<div class="rl-top">${d}</div><div class="rl-chart">${i.map(((t,e)=>`<span class="${e===r?"me":""}" style="height:${Math.max(3,100*t/a)}%" title="${e}k: ${t}"></span>`)).join("")}</div><div class="rl-axis"><span>0</span><span>5k</span><span>10k</span><span>14k+</span></div>`,
-c("share").textContent=R(e);const p=c("rl-good");p&&(p.textContent=Q??"??")}(e,t)));function ot(t){c("share").textContent=R(t),
-c("stats").innerHTML=function(t){
+c("share").textContent=q(e);const p=c("rl-good");p&&(p.textContent=Q??"??")}(e,t)));let ot=null;function st(t){ot=t,
+c("share").textContent=q(t),c("stats").innerHTML=function(t){
 const e=W(t),n=e.bars.map((t=>`<div class="st-row"><b>${t.l}</b><span class="st-bar${t.hi?" hi":""}" style="width:${8+.9*t.v}%">${t.v}</span></div>`)).join("")
 ;return`<div class="st-score">🏆 ${G(t).toLocaleString("en-US")}</div><div id="real" class="rl"><div class="rl-top">ᴄᴏᴍᴘᴀʀɪɴɢ ᴛᴏ ᴇᴠᴇʀʏᴏɴᴇ…</div></div><div class="st-tiles">${e.tiles.map((([t,e])=>`<div class="st-tile"><span class="st-v">${t}</span><span class="st-l">${e}</span></div>`)).join("")}</div><div class="st-h">${e.title}</div><div class="st-bars">${n}</div><div class="st-foot">🟥 : 🟩 ratio = ${e.ratio.replace(":"," : ")} · ʙᴇᴛᴛᴇʀ ᴛʜᴀɴ <span id="rl-good">${Q??"??"}</span>% ᴏꜰ ɢᴏᴏᴅ</div><div class="st-foot">ｓｅｎｔ ｆｒｏｍ ｉＰｈｏｎｅ １1️⃣</div><div class="st-down">↓</div>`
-}(t),c("h-time").textContent=D(t.t),c("h-solved").textContent=`✅ ${t.miss.length}/${t.miss.length}`,
+}(t),c("h-time").textContent=U(t.t),c("h-solved").textContent=`✅ ${t.miss.length}/${t.miss.length}`,
 c("h-miss").textContent=`❌ ${t.miss.reduce(((t,e)=>t+e),0)}`,c("h-open").textContent="done",c("start").style.display="none",
 c("end").style.display="flex",nt(t);const e=()=>{const t=new Date,e=new Date(t.getFullYear(),t.getMonth(),t.getDate()+1)-t
 ;c("next").textContent="Next almadle (all new games) in "+[Math.floor(e/36e5),Math.floor(e/6e4)%60,Math.floor(e/1e3)%60].map(o).join(":")}
-;e(),setInterval(e,1e3)}c("copy").onclick=async()=>{const t=c("share").textContent;try{await navigator.clipboard.writeText(t)}catch(e){
-const n=d("textarea");n.value=t,document.body.append(n),n.select();try{document.execCommand("copy")}catch(t){}n.remove()}
-c("copy").textContent="Copied ✅",setTimeout((()=>c("copy").textContent="Copy"),1500)};const st={bold:[119808,119834,120782],
-bit:[119912,119938,0],scr:[120016,120042,0],frak:[120172,120198,0],dbl:[120120,120146,120792],sans:[120276,120302,120812],
-mono:[120432,120458,120822],full:[65313,65345,65296],small:0,circ:0,plain:0},it={C:"ℂ",H:"ℍ",N:"ℕ",P:"ℙ",Q:"ℚ",R:"ℝ",Z:"ℤ"
-},at="ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ";function rt(t,e){return[...t].map((t=>{
-const n=t.codePointAt(0),o=n>=65&&n<=90,s=n>=97&&n<=122,i=n>=48&&n<=57;if("plain"===e)return t;if("small"===e)return s?at[n-97]:t
+;e(),setInterval(e,1e3)}function it(t){let e=0;const n=new Intl.Segmenter(void 0,{granularity:"grapheme"})
+;t=t.replace(/https?:\/\/\S+/g,"\0".repeat(23))
+;for(const{segment:o}of n.segment(t))if(/\p{Extended_Pictographic}|\p{Regional_Indicator}|⃣/u.test(o))e+=2;else for(const t of o){
+const n=t.codePointAt(0);e+=n<=4351||n>=8192&&n<=8205||n>=8208&&n<=8223||n>=8242&&n<=8247?1:2}return e}c("copy").onclick=async()=>{
+const t=c("share").textContent;try{await navigator.clipboard.writeText(t)}catch(e){const n=d("textarea");n.value=t,document.body.append(n),
+n.select();try{document.execCommand("copy")}catch(t){}n.remove()}c("copy").textContent="Copied ✅",
+setTimeout((()=>c("copy").textContent="Copy"),1500)
+},c("tweet").onclick=()=>window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent(function(t){
+let e=q(t).split("\n").filter((t=>!t.includes(": )")&&!t.startsWith("xaxaaxa")))
+;for(const t of["◀","ʜᴇᴍᴏʀʀʜᴀɢᴇ","𝕔𝕠𝕟𝕡𝕝𝕖𝕥𝕖𝕕𝕟𝕖𝕤𝕤"])it(e.join("\n"))>280&&(e=e.filter((e=>!e.includes(t))));return e.join("\n")
+}(ot)),"_blank","noopener");const at={bold:[119808,119834,120782],bit:[119912,119938,0],scr:[120016,120042,0],frak:[120172,120198,0],
+dbl:[120120,120146,120792],sans:[120276,120302,120812],mono:[120432,120458,120822],full:[65313,65345,65296],small:0,circ:0,plain:0},rt={
+C:"ℂ",H:"ℍ",N:"ℕ",P:"ℙ",Q:"ℚ",R:"ℝ",Z:"ℤ"},lt="ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ";function ct(t,e){return[...t].map((t=>{
+const n=t.codePointAt(0),o=n>=65&&n<=90,s=n>=97&&n<=122,i=n>=48&&n<=57;if("plain"===e)return t;if("small"===e)return s?lt[n-97]:t
 ;if("circ"===e)return o?String.fromCodePoint(9398+n-65):s?String.fromCodePoint(9424+n-97):48===n?"⓪":i?String.fromCodePoint(9312+n-49):t
-;const[a,r,l]=st[e]
-;return o?"dbl"===e&&it[t]||String.fromCodePoint(a+n-65):s?String.fromCodePoint(r+n-97):i&&l?String.fromCodePoint(l+n-48):t})).join("")}
-const lt=t("almadle::intro::"+s)
-;c("intro").innerHTML=`<div style="font-size:1.3rem">${rt("#"+l,lt.pick(["bold","dbl","full","circ"]))}</div><div style="font-size:1.15rem">${rt("goodluck",lt.pick(Object.keys(st).filter((t=>"plain"!==t))))}</div><div style="font-size:1.25rem;margin-top:4px">${rt("Conplete","dbl")} 💀✅</div>`,
-c("go").onclick=()=>{L||(L=!0,c("start").style.display="none",_=Date.now(),O(),et(),H(),U(),J(0))},U(),function(){
+;const[a,r,l]=at[e]
+;return o?"dbl"===e&&rt[t]||String.fromCodePoint(a+n-65):s?String.fromCodePoint(r+n-97):i&&l?String.fromCodePoint(l+n-48):t})).join("")}
+const dt=t("almadle::intro::"+s)
+;c("intro").innerHTML=`<div style="font-size:1.3rem">${ct("#"+l,dt.pick(["bold","dbl","full","circ"]))}</div><div style="font-size:1.15rem">${ct("goodluck",dt.pick(Object.keys(at).filter((t=>"plain"!==t))))}</div><div style="font-size:1.25rem;margin-top:4px">${ct("Conplete","dbl")} 💀✅</div>`,
+c("go").onclick=()=>{L||(L=!0,c("start").style.display="none",_=Date.now(),O(),et(),H(),D(),J(0))},D(),function(){
 const t=document.createElement("canvas")
 ;t.id="portal",t.style.cssText="position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none",document.body.prepend(t)
 ;const e=t.getContext("2d"),n=new Image,o=(t,e)=>t+Math.random()*(e-t);let s=0,i=0,a=[];const r=()=>{const n=Math.min(devicePixelRatio||1,2)
@@ -587,8 +595,8 @@ t.sp+=(t.goal-t.sp)*Math.min(1,.8*r),t.dir+=t.turn*r,t.rot+=t.spin*r;const a=Mat
 t.y<-l?t.y=i+l:t.y>i+l&&(t.y=-l),e.globalAlpha=t.al,e.save(),e.translate(t.x,t.y),e.rotate(t.rot),e.drawImage(n,-l/2,-l/2,l,l),e.restore()}
 requestAnimationFrame(m)};requestAnimationFrame(m)},n.src=document.querySelector("img.cat").src}(),function(){let t=null,e=null;try{
 t=JSON.parse(localStorage.getItem(K)||"null"),e=JSON.parse(localStorage.getItem(j)||"null")}catch(t){}
-if(t&&Array.isArray(t.miss))return ot(t);e&&e.start&&Array.isArray(e.miss)&&e.miss.length===M&&(L=!0,c("start").style.display="none",
-_=e.start,e.miss.forEach(((t,e)=>T[e]=t)),(e.solved||[]).forEach((t=>N.add(t))),z=N.size,et(),H(),U(),J(0))}();
+if(t&&Array.isArray(t.miss))return st(t);e&&e.start&&Array.isArray(e.miss)&&e.miss.length===M&&(L=!0,c("start").style.display="none",
+_=e.start,e.miss.forEach(((t,e)=>T[e]=t)),(e.solved||[]).forEach((t=>N.add(t))),I=N.size,et(),H(),D(),J(0))}();
 </script>
 </body>
 </html>
