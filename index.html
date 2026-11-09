@@ -458,14 +458,15 @@ name:"where's alma",build(t){const{r:e,body:n}=t,o=e.int(4,5);let s=0,a=!0,i=0;c
 ;const o=b(38,"position:absolute;bottom:3px;left:8px;visibility:hidden;outline:0"),s=d("div")
 ;return s.style.cssText="position:absolute;bottom:0;left:0;width:54px;height:66px;cursor:pointer;transition:transform .3s;background:linear-gradient(90deg,#a93226,#e74c3c 40%,#a93226);clip-path:polygon(14% 0,86% 0,100% 100%,0 100%);border-top:6px solid #7b241c",
 n.append(o,s),l.append(n),{box:n,cat:o,cover:s,slot:e}
-})),h=t=>t.box.style.left=100*c[t.slot]+"%",u=(t,e)=>t.cover.style.transform=e?"translateY(-52px)":"",f=(t,e)=>new Promise((n=>{let s;do{
-s=[...Array(o).keys()].sort((()=>Math.random()-.5))}while(s.some(((t,e)=>t===p[e].slot))&&Math.random()<.85)
-;[...Array(o).keys()].sort((()=>Math.random()-.5)).forEach(((n,o)=>setTimeout((()=>{const e=p[n]
-;e.box.style.transition=`left ${t}ms ease-in-out, transform ${t}ms`,e.slot=s[n],h(e);const a=o%2==0
-;e.box.style.transform=`translateX(-50%) translateY(${a?-16:8}px)`,e.box.style.zIndex=a?2:1,
-setTimeout((()=>e.box.style.transform="translateX(-50%)"),t)}),o*e))),setTimeout(n,t+(o-1)*e+20)})),y=async()=>{if(a=!0,
+})),h=t=>t.box.style.left=100*c[t.slot]+"%",u=(t,e)=>t.cover.style.transform=e?"translateY(-52px)":"",f=(t,e)=>new Promise((n=>{
+const s=t=>p.find((e=>e.slot===t)),a=[...Array(o).keys()].sort((()=>Math.random()-.5)),i=[];if(Math.random()<.55){
+const t=a.slice(0,4).sort(((t,e)=>t-e));i.push([s(t[0]),s(t[1])],[s(t[2]),s(t[3])]),Math.random()<.5&&i.reverse()
+}else i.push([s(a[0]),s(a[1])]);i.forEach((([n,o],s)=>setTimeout((()=>{[n.slot,o.slot]=[o.slot,n.slot],
+[[n,-18,3],[o,10,2]].forEach((([e,n,o])=>{e.box.style.transition=`left ${t}ms ease-in-out, transform ${t}ms`,h(e),
+e.box.style.transform=`translateX(-50%) translateY(${n}px)`,e.box.style.zIndex=o,
+setTimeout((()=>e.box.style.transform="translateX(-50%)"),t)}))}),s*e))),setTimeout(n,t+(i.length-1)*e+20)})),y=async()=>{if(a=!0,
 i=Math.floor(Math.random()*o),p.forEach(((t,e)=>{t.cat.style.visibility=e===i?"visible":"hidden",u(t,!0)})),await m(1e3),!t.alive())return
-;p.forEach((t=>u(t,!1))),await m(450);const e=4+2*s,n=s?260:320,r=s?110:150;for(let o=0;o<e;o++){if(!t.alive())return;await f(n,r),
+;p.forEach((t=>u(t,!1))),await m(450);const e=5+3*s,n=s?260:320,r=s?110:150;for(let o=0;o<e;o++){if(!t.alive())return;await f(n,r),
 await m(60)}a=!1};p.forEach(((e,n)=>e.cover.onclick=async()=>{if(!a&&t.alive())if(a=!0,u(e,!0),n===i){if(s++,
 r.textContent=`👀 ⇒ 🔀 ⇒ 👆 ··· ${s}/2`,await m(700),s>=2)return t.win();y()}else t.miss(),await m(350),u(p[i],!0),await m(900),y()})),
 p.forEach(h),n.append(r,l),setTimeout(y,300)}},{icon:"💡",name:"turn off the lights",build(t){
